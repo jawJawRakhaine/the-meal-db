@@ -1,11 +1,22 @@
+// enter button click
+const searchBox = document.getElementById("search-field");
+const searchBtn = document.getElementById("button-search");
+searchBox.addEventListener("keypress", function (event) {
+  // event.preventDefault();
+  if (event.keyCode == 13) {
+    searchBtn.click();
+  }
+});
 // global
 const mealDetails = document.getElementById("meal-details");
+const searchField = document.getElementById("search-field");
+const searchResult = document.getElementById("search-result");
 const searchFood = async () => {
-  const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   searchField.value = "";
   mealDetails.innerHTML = "";
   message.innerHTML = "";
+  searchResult.innerHTML = "";
 
   if (searchText == "") {
     const setMessage = document.getElementById("message");
@@ -25,8 +36,8 @@ const searchFood = async () => {
   }
 };
 const displaySearchResult = (meals) => {
-  const searchResult = document.getElementById("search-result");
-  searchResult.innerHTML = "";
+  // const searchResult = document.getElementById("search-result");
+  // searchResult.innerHTML = "";
   if (meals.length == 0) {
     //show result no found
   }
@@ -57,7 +68,6 @@ const loadMealDetails = async (mealId) => {
 };
 
 const displayMealDetails = (meal) => {
-  // const mealDetails = document.getElementById("meal-details");
   mealDetails.innerHTML = "";
   const div = document.createElement("div");
   div.classList.add("card");
