@@ -2,8 +2,7 @@
 const searchBox = document.getElementById("search-field");
 const searchBtn = document.getElementById("button-search");
 searchBox.addEventListener("keypress", function (event) {
-  // event.preventDefault();
-  if (event.keyCode == 13) {
+  if (event.key == "Enter") {
     searchBtn.click();
   }
 });
